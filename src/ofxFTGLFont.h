@@ -12,7 +12,7 @@ class ofxFTGLFont {
     ~ofxFTGLFont();
 	//the last parameters don't do anything, but are left in so that ofxFTGLFont
 	//can be dropped in in place of ofTrueTypeFont without compiler errors
-	bool 		loadFont(string filename, float fontsize = 10, bool _bAntiAliased = false, bool _bFullCharacterSet = false, bool makeContours = false, float simplifyAmnt = 0, int dpi = 72);
+	bool 		loadFont(string filename, float fontsize = 10, bool _bAntiAliased = false, bool _bFullCharacterSet = false, bool makeContours = false, float simplifyAmnt = 0.2f, int dpi = 72);
     bool 		isLoaded();
     
 	void 		setSize(int size);
@@ -26,7 +26,9 @@ class ofxFTGLFont {
 	float 		stringHeight(string c);
 	float 		stringWidth(string c);
 	
-    FTFont*  font;
+	string fileName ;
+	int fontSize ; 
+    ofPtr< FTFont >   font;
   protected:
     bool loaded;
     float lineHeight;

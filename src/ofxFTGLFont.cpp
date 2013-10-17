@@ -2,37 +2,57 @@
 
 ofxFTGLFont::ofxFTGLFont(){
     loaded = false;
-    font = NULL;
+    
 }
 
 ofxFTGLFont::~ofxFTGLFont(){
-	if(font != NULL){
-        //delete font;
+	if(font != NULL && loaded == true ){
+       // delete (*font);
+		
     }
+	 font.reset() ; 
 }
 
-bool ofxFTGLFont::loadFont(string filename, float fontsize, bool _bAntiAliased, bool _bFullCharacterSet, bool makeContours, float simplifyAmnt, int dpi){
+bool ofxFTGLFont::loadFont(string _filename, float fontsize, bool _bAntiAliased, bool _bFullCharacterSet, bool makeContours, float simplifyAmnt, int dpi){
+
+	fileName = _filename ; 
+	_bFullCharacterSet = false ; 
+	loaded = false ; 
+	if ( fontsize < 1 ) 
+	{
+		ofLogError( "ofxFTGLFont::loadFont : font size of " + ofToString( fontsize ) +  " is not valid. ABORTING" ) ;
+		return false ; 
+	}
+	if ( !ofFile::doesFileExist( ofToDataPath( fileName ) ) )
+	{
+		ofLogError ( "ofxFTGLFont::loadFont : font @ " + fileName + " does not exist! ABORTING." ) ; 
+		return false ; 
+	}
+	fontSize = fontsize ; 
+
 	fontsize *= 2;
-    font = new FTTextureFont(ofToDataPath(filename).c_str());
+    font = ofPtr< FTTextureFont > ( new FTTextureFont(ofToDataPath(fileName).c_str()) ) ;
 //	lineHeight = fontsize * 1.43f;
   	lineHeight = fontsize;
   
     font->Outset(0.0f, fontsize);
 
-    font->CharMap(ft_encoding_unicode);
+	font->CharMap(ft_encoding_unicode);
+	//font->CharMap(ft_encoding_latin_1);
 
     if(font->Error()){
-        ofLogError("ofxFTGLFont") << "Error loading font " << filename;
-        delete font;
+        ofLogError("ofxFTGLFont") << "Error loading font " << fileName ;
+       font.reset() ; 
 		return false;
     }    
     
     if(!font->FaceSize(fontsize)){
         ofLogError("ofxFTGLFont") << "Failed to set font size";
-        delete font;
+        font.reset() ; 
 		return false;
     }
     
+	
     loaded = true;
     return true;
 }
@@ -66,8 +86,9 @@ void ofxFTGLFont::setLineHeight(float newHeight){
 }
 
 ofRectangle ofxFTGLFont::getStringBoundingBox(string s, float x, float y){
-    if(loaded){
-    	FTBBox bbox = font->BBox(s.c_str());
+    if(loaded == true  && s.size() > 0 && font != NULL ){
+		//cout << "what is s : " << s << " x : " << x << " y : " << y << endl ; 
+		FTBBox bbox = font->BBox(s.c_str());
 	    return ofRectangle(x + bbox.Lower().Xf(), y + bbox.Lower().Yf(), bbox.Upper().Xf(), bbox.Upper().Yf());
     }
 	return ofRectangle();
@@ -86,7 +107,8 @@ void ofxFTGLFont::drawString(string s, float x, float y){
     glTranslatef(x, y, 0);
     glScalef(1,-1,1);
 
-    font->Render(s.c_str());
+	if ( font != NULL ) 
+		font->Render(s.c_str());
     glPopMatrix();
 }
 
