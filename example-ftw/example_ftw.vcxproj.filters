@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<ClCompile Include="src\testApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\testApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFTGL\src\ofxFTGLFont.cpp">
+			<Filter>addons\ofxFTGL\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxFTGL\src\ofxFTGLFontManager.cpp">
+			<Filter>addons\ofxFTGL\src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons">
+			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFTGL">
+			<UniqueIdentifier>{57563682-F5C8-32F7-8507-391B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFTGL\src">
+			<UniqueIdentifier>{DAB99E66-BFF9-D8FC-4903-714C}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFTGL\libs">
+			<UniqueIdentifier>{A27BE0C5-EBA8-B296-A7FC-2D5D}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFTGL\libs\FTGL">
+			<UniqueIdentifier>{A1802BB1-F112-3ED7-7AA3-2DC0}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFTGL\libs\FTGL\include">
+			<UniqueIdentifier>{193CBACB-1AEE-E0F8-A1B8-ADC6}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxFTGL\libs\FTGL\include\FTGL">
+			<UniqueIdentifier>{C73DF1B7-81E5-1B03-29A4-6B8F}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\testApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\testApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\src\ofxFTGLFont.h">
+			<Filter>addons\ofxFTGL\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\src\ofxFTGLFontManager.h">
+			<Filter>addons\ofxFTGL\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTBBox.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTBitmapGlyph.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTBuffer.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTBufferFont.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTBufferGlyph.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTExtrdGlyph.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTFont.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\ftgl.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTGLBitmapFont.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTGLExtrdFont.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTGLOutlineFont.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTGLPixmapFont.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTGLPolygonFont.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTGLTextureFont.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTGlyph.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTLayout.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTOutlineGlyph.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTPixmapGlyph.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTPoint.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTPolyGlyph.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTSimpleLayout.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxFTGL\libs\FTGL\include\FTGL\FTTextureGlyph.h">
+			<Filter>addons\ofxFTGL\libs\FTGL\include\FTGL</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
+</Project>

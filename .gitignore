@@ -1,98 +1,92 @@
-*.mode*
-*.pbxuser
-*.xcworkspace
-xcuserdata/
-xcshareddata/
 
-build/
-obj/
-*.o
+# OF-specific ignore patterns
+
 openFrameworks.a
 openFrameworksDebug.a
 openFrameworksUniversal.a
-*.app
 
 #rule to avoid non-official addons going into git
 #see addons/.gitignore
-#addons/**
-
-#NMM:
-apps/*/*/bin/data/img_cache
-
-#codeblocks files
-apps/*/*/*.layout
-apps/*/*/*.depend
-apps/*/*/bin/clickToLaunch*
-apps/*/*/bin/libs
-apps/*/*/obj
+addons/*
 
 #rule to avoid non-official apps going into git
 #see apps/.gitignore
-#apps
+apps/*
 
-#codeblocks OF lib files
-libs/openFrameworksCompiled/project/*/*.depend
-libs/openFrameworksCompiled/project/*/*.layout
+#also, see examples/.gitignore
 
-#linux temporary files
-*~
+# Some general ignore patterns
 
-#eclipse build folders
-#Mac OS X
-addons/Debug Mac OS X
-addons/Release Mac OS X
-libs/openFrameworks/Debug Mac OS X
-libs/openFrameworks/Release Mac OS X
-apps/*/*/Debug Mac OS X
-apps/*/*/Release Mac OS X
-.DS_Store
+[Bb]uild/
+[Oo]bj/
+*.o
+[Dd]ebug*/
+[Rr]elease*/
+*.mode*
+*.app/
+*.pyc
+.svn/
+*.log
 
-#xcode
-*.perspectivev3
+# IDE-specific ignore patterns
+
+#XCode
 *.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+#XCode 4
+xcuserdata
+*.xcworkspace
 
+#Code::Blocks
+*.depend
+*.layout
+
+#Visual Studio
+*.sdf
+*.opensdf
+*.suo
+*.pdb
+*.ilk
+*.aps
+ipch/
+*.dll
+*.lib
+*.exe
+*.pdb
+*.pbd
+
+#Eclipse
+.metadata
+local.properties
+.externalToolBuilders
+
+# OS-specific ignore patterns
 
 #Linux
-addons/Debug Linux
-addons/Release Linux
-libs/openFrameworks/Debug Linux
-libs/openFrameworks/Release Linux
-apps/*/*/Debug Linux
-apps/*/*/Release Linux
-apps/*/*/Debug Linux64
-apps/*/*/Release Linux64
+*~
+# KDE
+.directory
+.AppleDouble
 
+#OSX
+.DS_Store
+*.swp
+*~.nib
+# Thumbnails
+._*
 
-
-apps/nmm/NMMVisualizer/bin/data/journeys/**
-apps/nmm/NMMVisualizer/bin/data/img_cache/**
-#/apps/nmm/_sharedTestingFiles/SampleLayout/Wave_layout_template_scaleREZ_04_cs3.ai
-#/apps/nmm/_sharedTestingFiles/SampleLayout/Wave_layout_template_scaleREZ_04_cs3.svg
-/apps/nmm/NMMVisualizer/bin/data/VisualizerSettings.xml
+#Windows
+# Windows image file caches
+Thumbs.db
+# Folder config file
+Desktop.ini
 
 #Android
-addons/Debug Android
-addons/Release Android
-libs/openFrameworks/Debug Android
-libs/openFrameworks/Release Android
-libs/openFrameworks/Release
-libs/openFrameworks/Debug
-libs/openFrameworks/Release_arm7
-apps/*/*/Debug Android
-apps/*/*/Release Android
-apps/*/*/Debug
-apps/*/*/Release
-apps/*/*/Release_arm7
-apps/*/*/test link
-apps/*/*/obj
-#apps/*/*/bin
-
 .csettings
+/libs/openFrameworksCompiled/project/android/paths.make
 
-/apps/nmm/NMMPufferfish_DesignPrototype/bin/data/Puffersphere Settings_settings.xml
-/apps/nmm/NMMRenderer/bin/data/mpe_config.xml
-/apps/nmm/NMMRenderer/NMMRenderer.xcodeproj/focus.perspectivev3
-/apps/nmm/NMMRenderer/bin/data/LocalSettings.xml
-/apps/nmm/NMMAudioPlayer/bin/data/Test conflict_settings.xml
-/apps/nmm/NMMAudioPlayer/bin/data/Test navigation_settings.xml
-/apps/nmm/NMMAudioPlayer/bin/data/Test trade_settings.xml
+# Miscellaneous
+.mailmap

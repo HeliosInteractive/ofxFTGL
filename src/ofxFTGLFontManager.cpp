@@ -12,8 +12,13 @@ ofxFTGLFontManager::~ofxFTGLFontManager()
 
 ofxFTGLFont * ofxFTGLFontManager::getFont ( string fontPath , int  fontSize )
 {
+	//Let's make sure our font path is relative to the data folder
 	string localPath = ofToDataPath( fontPath , false ) ; 
-	int lastSlashIndex = fontPath.find_last_of( "/" ) ; 
+
+	//See if the path is formatted to use backslashse
+	int lastSlashIndex = fontPath.find_last_of( "/" );
+
+	//No backslahses ? It must be using forward slashes
 	if ( lastSlashIndex < 0 )
 		lastSlashIndex = fontPath.find_last_of( "\\" ) ; 
 	else if ( lastSlashIndex < 0 )
@@ -26,17 +31,18 @@ ofxFTGLFont * ofxFTGLFontManager::getFont ( string fontPath , int  fontSize )
 			//cout << "[" << i << " ] " << fonts[i]->fontSize << " vs. " << fontSize << endl ; 
 			if ((fonts[i]->fontSize == fontSize) &&  ((fonts[i])->fileName.compare( localPath ) == 0 )  ) 
 			{
-				ofLogWarning( " MATCH FOUND! " ) << fontPath << " and " << localPath << endl ; 
+				//This get spammy
+				//ofLogWarning( " MATCH FOUND! " ) << fontPath << " and " << localPath << endl ; 
 				return fonts[i] ; 
 			}
 		}
 	}
 
-	ofLogWarning( " NO font Match. CREATING a new one " ) << fontPath << " and " << fontSize << endl ; 
-	int index = fonts.size(); 
+	ofLogError( " NO font Match " ) << " CREATING " << fontPath << " , " << fontSize << endl ; 
+	
+	//Create our new font, populate it with data then return it.
 	fonts.push_back( new ofxFTGLFont() ) ; 
-	fonts[ index ]->loadFont( localPath , fontSize, true , false , false , 0.3 , 72 ) ; 
-
-	return fonts[ index ] ; 
+	fonts[ fonts.size() -1  ]->loadFont( localPath , fontSize, true , false , false , 0.3 , 72 ) ; 
+	return fonts[ fonts.size() -1 ] ; 
 
 } 

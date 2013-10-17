@@ -6,9 +6,7 @@
 class ofxFTGLFontManager
 {
 public : 
-	ofxFTGLFontManager() ;
-	~ofxFTGLFontManager() ;
-
+	
 	ofxFTGLFont * getFont ( string fontPath , int  fontSize ) ;
 
 	static ofxFTGLFontManager* Instance()
@@ -16,6 +14,9 @@ public :
 		static ofxFTGLFontManager inst ;
 		return &inst ;
 	}
+
 private : 
-	vector < ofxFTGLFont * > fonts ; 
+	vector < ofxFTGLFont * > fonts ;
+	ofxFTGLFontManager() ;
+	~ofxFTGLFontManager() ;
 };

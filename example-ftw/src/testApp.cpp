@@ -36,11 +36,10 @@ void testApp::setup(){
 	
 	ofSetFrameRate(30);
 	ofSetVerticalSync(true);
-	
+	ofSetLogLevel( OF_LOG_VERBOSE ) ; 	
 	ofEnableAlphaBlending();
-	str = "初音ミク";
-	font.loadFont("mplus-1c-regular.ttf", ofGetHeight(), true);
-	ofSetWindowShape(1024, font.getStringBoundingBox(str, 0, 0).height);
+
+	fontPath = "mplus-1c-regular.ttf" ; 
 }
 
 //--------------------------------------------------------------
@@ -50,9 +49,25 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	ofBackground(255);
-	ofSetColor(0);
-	font.drawString(str, ofGetWidth() - ( (ofGetFrameNum()*70) % int(font.getStringBoundingBox(str, 0,0).width + ofGetWidth())), ofGetHeight());
+	ofBackground(0);
+
+	string systemTime = "sysemtTime : " + ofToString( ofGetSystemTime() ) ; 
+	string elapsedTimef = "elapsedTime : " + ofToString( ofGetElapsedTimef() ) ; 
+
+	ofSetColor( 255 ) ; 
+	//We query the manager with a font size and path which returns a pointer to of type ofxFTGLFont
+	ofxFTGLFontManager::Instance()->getFont( fontPath , 22 )->drawString( systemTime , 50 , 250 ) ; 
+
+	ofSetColor( 200 , 255 , 200 ) ; 
+	//Querying this font should return that it already has been allocated, so we save some GPU memory allocation
+	ofxFTGLFontManager::Instance()->getFont( fontPath , 22 )->drawString( elapsedTimef , 50 , 450 ) ; 
+
+
+	ofSetColor( 200 , 195 , 255 ) ; 
+	//Querying this font will *not* have a match the first time around and will create a new ofxFTGL and return it.
+	ofxFTGLFontManager::Instance()->getFont( fontPath , 29 )->drawString( elapsedTimef , 50 , 650 ) ; 
+
+
 }
 
 //--------------------------------------------------------------

@@ -33,6 +33,7 @@
 
 #include "ofMain.h"
 #include "ofxFTGLFont.h"
+#include "ofxFTGLFontManager.h"
 
 class testApp : public ofBaseApp{
 
@@ -51,8 +52,6 @@ class testApp : public ofBaseApp{
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	ofxFTGLFont font;
-	string str;
-	
-	vector<ofVec2f> points;
+	string fontPath ; 
+
 };
