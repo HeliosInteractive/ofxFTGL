@@ -1,16 +1,27 @@
 #include "ofxFTGLFontManager.h"
 
-ofxFTGLFontManager::ofxFTGLFontManager( )
+std::auto_ptr<ofxFTGLFontManager> ofxFTGLFontManager::instance;
+
+ofxFTGLFontManager::ofxFTGLFontManager(){} 
+ofxFTGLFontManager::~ofxFTGLFontManager(){ofLogNotice() << "The instance of FTGLFontManager was destroyed";} 
+
+void ofxFTGLFontManager::initInstance ()
 {
+	if (!instance.get())
+	{
+		ofLogNotice("FontManager") << "The instance of FTGLFontManager was created";
+		instance.reset( new ofxFTGLFontManager());
+	}
+}
 
-} 
-
-ofxFTGLFontManager::~ofxFTGLFontManager() 
-{
-
-} 
 
 ofxFTGLFont * ofxFTGLFontManager::getFont ( string fontPath , int  fontSize )
+{
+	initInstance();
+	return instance->getFontInternal(fontPath,fontSize);
+}
+
+ofxFTGLFont * ofxFTGLFontManager::getFontInternal ( string fontPath , int  fontSize )
 {
 	//Let's make sure our font path is relative to the data folder
 	string localPath = ofToDataPath( fontPath , false ) ; 
@@ -24,25 +35,15 @@ ofxFTGLFont * ofxFTGLFontManager::getFont ( string fontPath , int  fontSize )
 	else if ( lastSlashIndex < 0 )
 		localPath = fontPath.substr( lastSlashIndex  + 1 ) ; 
 	
-	if ( fonts.size() > 0 ) 
+	string fontkey = localPath+ofToString(fontSize);
+
+	if (fontTable.find(fontkey) == fontTable.end())
 	{
-		for ( int i = 0 ; i < fonts.size() ; i++  ) 
-		{
-			//cout << "[" << i << " ] " << fonts[i]->fontSize << " vs. " << fontSize << endl ; 
-			if ((fonts[i]->fontSize == fontSize) &&  ((fonts[i])->fileName.compare( localPath ) == 0 )  ) 
-			{
-				//This get spammy
-				//ofLogWarning( " MATCH FOUND! " ) << fontPath << " and " << localPath << endl ; 
-				return fonts[i] ; 
-			}
-		}
+		ofxFTGLFont* newFont = new ofxFTGLFont();
+		newFont->loadFont( localPath , fontSize, true , false , false , 0.3 , 72 ); 
+		fontTable[fontkey] = newFont;
+		ofLogNotice("Font Cached") << fontPath<< " @ "<<fontSize<<"pt : "<<fontTable.size()<<" fonts cached total";
 	}
 
-	ofLogError( " NO font Match " ) << " CREATING " << fontPath << " , " << fontSize << endl ; 
-	
-	//Create our new font, populate it with data then return it.
-	fonts.push_back( new ofxFTGLFont() ) ; 
-	fonts[ fonts.size() -1  ]->loadFont( localPath , fontSize, true , false , false , 0.3 , 72 ) ; 
-	return fonts[ fonts.size() -1 ] ; 
-
+	return fontTable[fontkey];
 } 

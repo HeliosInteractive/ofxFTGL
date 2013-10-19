@@ -2,21 +2,29 @@
 
 #include "ofMain.h"
 #include "ofxFTGLFont.h"
+#include <unordered_map>
 
 class ofxFTGLFontManager
 {
 public : 
 	
-	ofxFTGLFont * getFont ( string fontPath , int  fontSize ) ;
+	static ofxFTGLFont * getFont ( string fontPath , int  fontSize ) ;
 
-	static ofxFTGLFontManager* Instance()
+	static ofxFTGLFontManager Instance()
 	{
-		static ofxFTGLFontManager inst ;
-		return &inst ;
+		initInstance();
+        return *instance;
 	}
+	
+	~ofxFTGLFontManager();
 
 private : 
-	vector < ofxFTGLFont * > fonts ;
-	ofxFTGLFontManager() ;
-	~ofxFTGLFontManager() ;
+	ofxFTGLFontManager();
+	static void initInstance();
+	static std::auto_ptr<ofxFTGLFontManager> instance;
+	unordered_map<string,ofxFTGLFont *> fontTable;
+    ofxFTGLFontManager(ofxFTGLFontManager const&);          
+    void operator=(ofxFTGLFontManager const&);
+	ofxFTGLFont * getFontInternal(string fontPath , int  fontSize);
 };
+

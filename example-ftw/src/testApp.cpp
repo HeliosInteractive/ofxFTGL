@@ -56,16 +56,16 @@ void testApp::draw(){
 
 	ofSetColor( 255 ) ; 
 	//We query the manager with a font size and path which returns a pointer to of type ofxFTGLFont
-	ofxFTGLFontManager::Instance()->getFont( fontPath , 22 )->drawString( systemTime , 50 , 250 ) ; 
+	ofxFTGLFontManager::getFont( fontPath , 22 )->drawString( systemTime , 50 , 250 ) ; 
 
 	ofSetColor( 200 , 255 , 200 ) ; 
 	//Querying this font should return that it already has been allocated, so we save some GPU memory allocation
-	ofxFTGLFontManager::Instance()->getFont( fontPath , 22 )->drawString( elapsedTimef , 50 , 450 ) ; 
+	ofxFTGLFontManager::getFont( fontPath , 22 )->drawString( elapsedTimef , 50 , 450 ) ; 
 
 
 	ofSetColor( 200 , 195 , 255 ) ; 
 	//Querying this font will *not* have a match the first time around and will create a new ofxFTGL and return it.
-	ofxFTGLFontManager::Instance()->getFont( fontPath , 29 )->drawString( elapsedTimef , 50 , 650 ) ; 
+	ofxFTGLFontManager::getFont( fontPath , 29 )->drawString( elapsedTimef , 50 , 650 ) ; 
 
 
 }
