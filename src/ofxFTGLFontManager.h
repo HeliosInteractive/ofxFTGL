@@ -10,10 +10,10 @@ public :
 	
 	static ofxFTGLFont * getFont ( string fontPath , int  fontSize ) ;
 
-	static ofxFTGLFontManager Instance()
+	static ofxFTGLFontManager* Instance()
 	{
 		initInstance();
-        return *instance;
+        return instance.get();
 	}
 	
 	~ofxFTGLFontManager();

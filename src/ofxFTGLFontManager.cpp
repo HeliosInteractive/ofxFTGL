@@ -17,8 +17,7 @@ void ofxFTGLFontManager::initInstance ()
 
 ofxFTGLFont * ofxFTGLFontManager::getFont ( string fontPath , int  fontSize )
 {
-	initInstance();
-	return instance->getFontInternal(fontPath,fontSize);
+	return Instance()->getFontInternal(fontPath,fontSize);
 }
 
 ofxFTGLFont * ofxFTGLFontManager::getFontInternal ( string fontPath , int  fontSize )
