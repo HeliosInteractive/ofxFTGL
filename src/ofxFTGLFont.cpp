@@ -37,8 +37,7 @@ bool ofxFTGLFont::loadFont(string _filename, float fontsize, bool _bAntiAliased,
   
     font->Outset(0.0f, fontsize);
 
-	font->CharMap(ft_encoding_unicode);
-	//font->CharMap(ft_encoding_latin_1);
+	font->CharMap(FT_ENCODING_UNICODE);
 
     if(font->Error()){
         ofLogError("ofxFTGLFont") << "Error loading font " << fileName ;
