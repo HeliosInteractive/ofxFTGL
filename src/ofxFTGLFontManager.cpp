@@ -46,3 +46,28 @@ ofxFTGLFont * ofxFTGLFontManager::getFontInternal ( string fontPath , int  fontS
 
 	return fontTable[fontkey];
 } 
+
+void ofxFTGLFontManager::exportToXML( string xmlName  )
+{
+
+	unordered_map<string,ofxFTGLFont *>::iterator font ;
+
+	ofxXmlSettings xml ; 
+	font = fontTable.begin() ; 
+	while ( font != fontTable.end() ) 
+	{
+		int tagIndex = xml.addTag( "font" ) ;
+		xml.pushTag( "font" , tagIndex ) ; 
+	//	xml.setValue( "fontPath" , (*font).first. ) ; 
+		xml.setValue ( "fontSize" , (*font).second->fontSize ) ; 
+		xml.setValue ( "fileName" , (*font).second->fileName ) ; 
+
+
+		//cout << "fontPath : " <<  (*font).first  << endl ; 
+		//cout << "fontSize : " << (*font).second->fileName << endl ; 
+		xml.popTag() ; 
+		++font ; 
+	}
+	
+	xml.saveFile( ofToDataPath( xmlName ) ) ; 
+} 

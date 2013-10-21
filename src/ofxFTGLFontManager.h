@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxFTGLFont.h"
+#include "ofxXmlSettings.h"	
 #include <unordered_map>
 
 class ofxFTGLFontManager
@@ -17,6 +18,7 @@ public :
 	}
 	
 	~ofxFTGLFontManager();
+	void exportToXML( string xmlName = "fontExport.xml" ) ;
 
 private : 
 	ofxFTGLFontManager();
