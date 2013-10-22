@@ -31,7 +31,7 @@ bool ofxFTGLFont::loadFont(string _filename, float fontsize, bool _bAntiAliased,
 	fontSize = fontsize ; 
 
 	fontsize *= 2;
-    font = ofPtr< FTTextureFont > ( new FTTextureFont(ofToDataPath(fileName).c_str()) ) ;
+	font.reset( new FTTextureFont(ofToDataPath(fileName).c_str()) ); 
 //	lineHeight = fontsize * 1.43f;
   	lineHeight = fontsize;
   
